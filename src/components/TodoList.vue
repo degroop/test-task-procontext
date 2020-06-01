@@ -74,7 +74,8 @@ export default class TodoList extends Vue {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;   
-        padding-right: 20px;     
+        padding-right: 20px;   
+        font-weight: bold;  
     }
     .body {
         padding-top: 5px;
