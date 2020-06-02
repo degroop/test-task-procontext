@@ -2,6 +2,7 @@
   <div class="card">
     <template v-if="editMode">  
         <input v-on:keyup.enter="editMode = false" type="text" class="card__title-input" v-model.lazy="card.name" placeholder="введите задание">
+        <span class="add-symbol" @click="editMode = false">&#10003;</span>
     </template>
     <template v-else>
         <input type="checkbox" class="card__status" v-model="card.status">
@@ -49,6 +50,16 @@ export default class TodoCard extends Vue {
         }
         &__title-input {
             margin-left: 4px;
+        }
+    }
+    .add-symbol {
+        margin-left: 6px;
+        font-weight: bold;
+        color: #333;
+        opacity: 0.3;
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
         }
     }
 </style>

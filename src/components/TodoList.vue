@@ -2,6 +2,7 @@
   <div class="list">
     <template v-if="editMode">  
         <input v-on:keyup.enter="editMode = false" type="text" class="list__title-input" v-model="name" placeholder="введите название">
+        <div class="default-button create-list-button" @click="editMode = false">создать доску</div>
     </template>
     <template v-else>
         <div class="header">
@@ -94,5 +95,8 @@ export default class TodoList extends Vue {
             margin-top: 4px;
             width: 170px;
         }
-    }  
+    } 
+    .create-list-button {
+        margin-top: 5px;
+    } 
 </style>
