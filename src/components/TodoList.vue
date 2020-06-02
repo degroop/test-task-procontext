@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="body">
-            <draggable :list="filteredTodos" group="tasks">
+            <draggable :list="todos" group="tasks">
                 <todo-card v-for='(card, index) in filteredTodos' :card='card' :key='index' @remove:card="todos.splice(index, 1)"></todo-card>
             </draggable>
             <div v-if="!filterEnabled" @click="addTask" class="default-button">добавить карточку</div>
