@@ -26,12 +26,29 @@ export default class HelloWorld extends Vue {
 </script>
 
 <style scoped lang="less">
+@media (max-width: 575.98px) {
+    .todo-list {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .todo-list {
+        flex-direction: row;    
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 768px) {
+    .todo-list {
+        flex-direction: row;      
+    }
+}
+
 .todo-list {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
-    & > div:not(:first-child) {
-        margin-left: 4px;
-    }
 }
 .new-list-button {
     border: 1px solid #000;

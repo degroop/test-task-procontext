@@ -65,38 +65,59 @@ export default class TodoList extends Vue {
 </script>
 
 <style scoped lang="less">
+@media (max-width: 575.98px) {
     .list {
-        padding: 4px 4px;
-        border-radius: 4px;
-        width: 270px;   
-        background-color: #ebecf0;
-        position: relative;  
+        margin-bottom: 5px;
+        width: calc(100% - 8px);
     }
-    .header {
-        height: 24px;
-        line-height: 24px;
-        border-bottom: 1px solid #ccc;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;   
-        padding-right: 20px;   
-        font-weight: bold;  
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .list {
+        margin: 0 5px 5px 0;
+        width: calc(50% - 13px);
     }
-    .body {
-        padding-top: 5px;
+}
+
+@media (min-width: 768px) {
+    .list {
+        margin: 0 5px 5px 0;
+        width: 270px;
     }
-    .filter {
-        padding: 4px 0px;
-        border-bottom: 1px solid #ccc;
-        &__name {
-            width: 162px;
-        }
-        &__status {
-            margin-top: 4px;
-            width: 170px;
-        }
-    } 
-    .create-list-button {
-        margin-top: 5px;
-    } 
+}
+
+.list {
+    padding: 4px 4px;
+    border-radius: 4px;
+    background-color: #ebecf0;
+    position: relative;  
+}
+.header {
+    height: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #ccc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+    padding-right: 20px;   
+    font-weight: bold;  
+}
+.body {
+    padding-top: 5px;
+}
+.filter {
+    padding: 4px 0px;
+    border-bottom: 1px solid #ccc;
+    &__name {
+        width: 162px;
+        display: block;
+    }
+    &__status {
+        margin-top: 4px;
+        width: 170px;
+    }
+} 
+.create-list-button {
+    margin-top: 5px;
+} 
 </style>
