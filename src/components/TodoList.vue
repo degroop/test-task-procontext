@@ -22,7 +22,9 @@
             </div>
         </div>
         <div class="body">
-            <todo-card v-for='(card, index) in filteredTodos' :card='card' :key='index' @remove:card="todos.splice(index, 1)"></todo-card>
+            <draggable :list="filteredTodos" group="tasks">
+                <todo-card v-for='(card, index) in filteredTodos' :card='card' :key='index' @remove:card="todos.splice(index, 1)"></todo-card>
+            </draggable>
             <div v-if="!filterEnabled" @click="addTask" class="default-button">добавить карточку</div>
         </div>        
     </template>  
@@ -34,11 +36,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { TodoTaskInterface } from '@/components/TodoCard.vue';
 import TodoCard from '@/components/TodoCard.vue';
+import draggable from 'vuedraggable'
 
 
 @Component({
     components: {
-        TodoCard
+        TodoCard,
+        draggable
     }
 })
 export default class TodoList extends Vue {
@@ -79,9 +83,6 @@ export default class TodoList extends Vue {
     }
     .body {
         padding-top: 5px;
-    }
-    .body > div:not(:first-child) {        
-        margin-top: 5px; 
     }
     .filter {
         padding: 4px 0px;

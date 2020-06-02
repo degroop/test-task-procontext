@@ -37,7 +37,10 @@ export default class TodoCard extends Vue {
         position: relative;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;        
+        text-overflow: ellipsis;   
+        &:not(:first-child) {
+            margin-top: 5px;
+        }     
         &__status {
             margin-left: 10px;
         }
