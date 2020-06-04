@@ -12,7 +12,7 @@ import TodoList from '@/components/TodoList.vue';
 @Component({
     components: {
         TodoList
-    }  
+    }, 
 })
 export default class HelloWorld extends Vue {
     private lists: Array<Object> = []
@@ -46,6 +46,7 @@ export default class HelloWorld extends Vue {
 }
 
 .todo-list {
+    padding: 8px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;

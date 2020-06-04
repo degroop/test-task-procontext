@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <confirm-dialog />
         <todo-board />
     </div>
 </template>
@@ -7,16 +8,22 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import TodoBoard from '@/components/TodoBoard.vue';
+import ConfirmDialog from '@/components/ConfirmDialog.vue';
 
 @Component({
     components: {
-        TodoBoard
+        TodoBoard,
+        ConfirmDialog
     },
 })
 export default class App extends Vue {}
 </script>
 
 <style lang="less">
+body {
+    margin: 0;
+    padding: 0;
+}
 #app {
     font-family: 'Courier New';
     color: #2c3e50;
@@ -63,6 +70,6 @@ input, select {
     &:hover {
         opacity: 1;
         cursor: pointer;
-    }  
+    }
 }
 </style>

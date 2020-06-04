@@ -8,7 +8,7 @@
         <input type="checkbox" class="card__status" v-model="card.status">
         <span class="card__title">{{ card.name }}</span>        
     </template>
-    <span class="close-icon" @click="$emit('remove:card')"/>
+    <span class="close-icon" @click="$store.commit('addModal', { target: 'карточку', action: () => $emit('remove:card') })" />
   </div>
 </template>
 
@@ -30,36 +30,36 @@ export default class TodoCard extends Vue {
 </script>
 
 <style scoped lang="less">
-    .card {
-        height: 36px;
-        line-height: 36px;
-        background-color: #fff;
-        border-radius: 4px;
-        position: relative;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;   
-        &:not(:first-child) {
-            margin-top: 5px;
-        }     
-        &__status {
-            margin-left: 10px;
-        }
-        &__title {
-            margin-left: 4px;
-        }
-        &__title-input {
-            margin-left: 4px;
-        }
+.card {
+    height: 36px;
+    line-height: 36px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+    &:not(:first-child) {
+        margin-top: 5px;
+    }     
+    &__status {
+        margin-left: 10px;
     }
-    .add-symbol {
-        margin-left: 6px;
-        font-weight: bold;
-        color: #333;
-        opacity: 0.3;
-        &:hover {
-            opacity: 1;
-            cursor: pointer;
-        }
+    &__title {
+        margin-left: 4px;
     }
+    &__title-input {
+        margin-left: 4px;
+    }
+}
+.add-symbol {
+    margin-left: 6px;
+    font-weight: bold;
+    color: #333;
+    opacity: 0.3;
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+}
 </style>

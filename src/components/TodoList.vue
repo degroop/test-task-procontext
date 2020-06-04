@@ -29,7 +29,7 @@
             <div v-if="!filterEnabled" @click="addTask" class="default-button">добавить карточку</div>
         </div>        
     </template>  
-    <span class="close-icon" @click="$emit('remove:list')"/>    
+    <span class="close-icon" @click="$store.commit('addModal', { target: 'доску', action: () => $emit('remove:list') })" />
   </div>
 </template>
 
@@ -57,7 +57,7 @@ export default class TodoList extends Vue {
     get filteredTodos(): Array<TodoTaskInterface> {
         return this.filterEnabled ? this.todos.filter( el => ( this.statusFilter === null || el.status === this.statusFilter ) && el.name.toLowerCase().includes(this.nameFilter.toLowerCase())) : this.todos;
     }
-
+    
     public addTask(): void {
         this.todos.push({ status: false, name: '' });
     }    
